@@ -1,5 +1,6 @@
 package Tydek.billmanager.domains.customerFofolder;
 
+import Tydek.billmanager.domains.enums.Civility;
 import Tydek.billmanager.domains.enums.Nationality;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,6 +13,7 @@ public class Person implements Customer {
     private String idPerson;
     private String firstName;
     private String lastName;
+    private Civility civility;
     private String email;
     private String phoneNumber;
     private Nationality nationality;
