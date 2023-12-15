@@ -12,6 +12,7 @@ import java.util.List;
 public class ApplicationUser {
     @Id
     private String userName;
+    private String password;
     private String lastName;
     private String firstName;
     private List<Right> rights;
