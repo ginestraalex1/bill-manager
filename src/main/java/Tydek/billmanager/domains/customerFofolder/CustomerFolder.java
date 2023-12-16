@@ -11,4 +11,5 @@ public class CustomerFolder {
     @Id
     private String idFolder;
     private String idCustomer;
+    private String idAppointment;
 }
