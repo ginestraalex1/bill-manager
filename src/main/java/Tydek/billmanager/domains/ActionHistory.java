@@ -1,6 +1,8 @@
 package Tydek.billmanager.domains;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -8,7 +10,8 @@ import lombok.Data;
 @Data
 public class ActionHistory {
     @Id
-    private String idAction;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idAction;
     private String userNameResponsible;
     private String customerFolderRelated;
 }

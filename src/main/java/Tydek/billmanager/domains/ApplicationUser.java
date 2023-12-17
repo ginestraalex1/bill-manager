@@ -2,6 +2,8 @@ package Tydek.billmanager.domains;
 
 import Tydek.billmanager.domains.enums.Right;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -11,7 +13,8 @@ import java.util.List;
 @Data
 public class ApplicationUser {
     @Id
-    private String userName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long userName;
     private String password;
     private String lastName;
     private String firstName;
