@@ -1,6 +1,6 @@
 package Tydek.billmanager.services;
 
-import Tydek.billmanager.domains.customerFofolder.CustomerFolder;
+import Tydek.billmanager.domains.customerFolder.CustomerFolder;
 import Tydek.billmanager.repositories.CustomerFolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

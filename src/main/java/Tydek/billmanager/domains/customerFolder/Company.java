@@ -1,4 +1,4 @@
-package Tydek.billmanager.domains.customerFofolder;
+package Tydek.billmanager.domains.customerFolder;
 
 import Tydek.billmanager.domains.enums.Nationality;
 import jakarta.persistence.Entity;

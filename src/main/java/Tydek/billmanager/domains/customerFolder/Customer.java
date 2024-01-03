@@ -1,4 +1,4 @@
-package Tydek.billmanager.domains.customerFofolder;
+package Tydek.billmanager.domains.customerFolder;
 
 public interface Customer {
 
