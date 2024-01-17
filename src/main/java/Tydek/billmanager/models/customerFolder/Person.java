@@ -1,7 +1,7 @@
-package Tydek.billmanager.domains.customerFolder;
+package Tydek.billmanager.models.customerFolder;
 
-import Tydek.billmanager.domains.enums.Civility;
-import Tydek.billmanager.domains.enums.Nationality;
+import Tydek.billmanager.models.enums.Civility;
+import Tydek.billmanager.models.enums.Nationality;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

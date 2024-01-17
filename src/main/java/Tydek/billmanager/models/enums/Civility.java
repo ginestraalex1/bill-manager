@@ -1,4 +1,4 @@
-package Tydek.billmanager.domains.enums;
+package Tydek.billmanager.models.enums;
 
 public enum Civility {
     MALE,

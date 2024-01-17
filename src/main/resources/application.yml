@@ -11,6 +11,9 @@ spring:
     password: password
   jap:
     database-platform: org.hibernate.dialect.H2Dialect
+#    defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: create-drop
   h2:
     console.enabled: true
 
