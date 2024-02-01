@@ -8,23 +8,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Entity
 @Data
 public abstract class CustomerFolder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idFolder;
+    private long idCustomerFolder;
     private String idCustomer;
     private String idAppointment;
+    private String deceasedFirstName;
+    private String deceasedLastName;
     private Nationality deceasedNationality;
-    private long idPerson;
-    private String firstName;
-    private String lastName;
-    private Civility civility;
-    private String email;
-    private String phoneNumber;
-    private Nationality nationality;
+    private Civility deceasedCivility;
+    private long TVA;
 
     public static CustomerFolder getCustomerFolderInstance() {
         return CustomerFolderFactory.getCustomerFolder(null);
@@ -32,4 +31,11 @@ public abstract class CustomerFolder {
     public static CustomerFolder getCustomerFolderInstance(Nationality nationality) {
         return CustomerFolderFactory.getCustomerFolder(nationality);
     }
+
+    public abstract int numberOfStep();
+
+    public abstract List<CustomerFolderField> getFieldsForStep(int stepNumber);
+
+    public abstract List<CustomerFolderField> getDocumentListToUpload();
+
 }

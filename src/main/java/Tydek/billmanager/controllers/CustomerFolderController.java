@@ -20,6 +20,11 @@ public class CustomerFolderController {
         return ResponseEntity.ok(customerFolderService.createCustomerFolder());
     }
 
+    @PutMapping()
+    public ResponseEntity<CustomerFolder> updateCustomerFolder(@RequestBody CustomerFolder customerFolder) {
+        return ResponseEntity.ok(customerFolderService.updateCustomerFolder(customerFolder));
+    }
+
     @GetMapping()
     public ResponseEntity<List<CustomerFolder>> getAllCustomerFolders() {
         return ResponseEntity.ok(customerFolderService.getAllCustomerFolders());

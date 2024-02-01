@@ -9,9 +9,9 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: password
-  jap:
+  jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-#    defer-datasource-initialization: true
+    defer-datasource-initialization: true
 #    hibernate:
 #      ddl-auto: create-drop
   h2:

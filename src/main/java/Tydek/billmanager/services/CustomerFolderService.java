@@ -18,6 +18,15 @@ public class CustomerFolderService {
         return this.customerFolderRepository.save(CustomerFolder.getCustomerFolderInstance());
     }
 
+    public CustomerFolder updateCustomerFolder(CustomerFolder customerFolder) {
+        Optional<CustomerFolder> customerFolderToUpdateOptional = this.customerFolderRepository.findById(customerFolder.getIdCustomerFolder());
+        if (customerFolderToUpdateOptional.isEmpty()){
+            return null;
+        }
+
+        return this.customerFolderRepository.save(customerFolder);
+    }
+
     public List<CustomerFolder> getAllCustomerFolders() {
         return this.customerFolderRepository.findAll();
     }
