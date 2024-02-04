@@ -13,6 +13,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final String[] pathsAccessPermitAll = {
+            PathConstant.H2_CONSOLE,
+            PathConstant.SWAGGER_UI,
+            PathConstant.OPENAPI,
+            PathConstant.USER_LOGIN,
+    };
+
     @Autowired
     private JpaUserDetailsService jpaUserDetailsService;
 
@@ -20,7 +27,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
                 .csrf(httpSecurityCsrfConfigurer -> {
-//                    httpSecurityCsrfConfigurer.ignoringRequestMatchers("/h2-console/**");
                     httpSecurityCsrfConfigurer.disable();
                 })
                 .headers(httpSecurityHeadersConfigurer -> {
@@ -28,9 +34,11 @@ public class SecurityConfig {
                 })
                 .userDetailsService(jpaUserDetailsService)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> {
-                    authorizationManagerRequestMatcherRegistry.requestMatchers(PathConstant.H2_CONSOLE+"/**").permitAll();
+                    for(String path : this.pathsAccessPermitAll) {
+                        authorizationManagerRequestMatcherRegistry.requestMatchers(path).permitAll();
+                        authorizationManagerRequestMatcherRegistry.requestMatchers(path+"/**").permitAll();
+                    }
                     authorizationManagerRequestMatcherRegistry.requestMatchers(PathConstant.USER).permitAll();
-                    authorizationManagerRequestMatcherRegistry.requestMatchers(PathConstant.USER_LOGIN).permitAll();
                     authorizationManagerRequestMatcherRegistry.requestMatchers(PathConstant.USER+"/**").authenticated();
                 })
                 .build();
