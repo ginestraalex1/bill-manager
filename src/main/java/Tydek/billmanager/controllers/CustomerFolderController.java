@@ -1,6 +1,6 @@
 package Tydek.billmanager.controllers;
 
-import Tydek.billmanager.domains.customerFolder.CustomerFolder;
+import Tydek.billmanager.models.customerFolder.CustomerFolder;
 import Tydek.billmanager.services.CustomerFolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +18,11 @@ public class CustomerFolderController {
     @PostMapping()
     public ResponseEntity<CustomerFolder> createCustomerFolder() {
         return ResponseEntity.ok(customerFolderService.createCustomerFolder());
+    }
+
+    @PutMapping()
+    public ResponseEntity<CustomerFolder> updateCustomerFolder(@RequestBody CustomerFolder customerFolder) {
+        return ResponseEntity.ok(customerFolderService.updateCustomerFolder(customerFolder));
     }
 
     @GetMapping()

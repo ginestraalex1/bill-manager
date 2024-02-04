@@ -1,4 +1,4 @@
-package Tydek.billmanager.domains;
+package Tydek.billmanager.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,6 +1,6 @@
 package Tydek.billmanager.services;
 
-import Tydek.billmanager.domains.customerFolder.CustomerFolder;
+import Tydek.billmanager.models.customerFolder.CustomerFolder;
 import Tydek.billmanager.repositories.CustomerFolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,16 @@ public class CustomerFolderService {
     private CustomerFolderRepository customerFolderRepository;
 
     public CustomerFolder createCustomerFolder() {
-        return this.customerFolderRepository.save(new CustomerFolder());
+        return this.customerFolderRepository.save(CustomerFolder.getCustomerFolderInstance());
+    }
+
+    public CustomerFolder updateCustomerFolder(CustomerFolder customerFolder) {
+        Optional<CustomerFolder> customerFolderToUpdateOptional = this.customerFolderRepository.findById(customerFolder.getIdCustomerFolder());
+        if (customerFolderToUpdateOptional.isEmpty()){
+            return null;
+        }
+
+        return this.customerFolderRepository.save(customerFolder);
     }
 
     public List<CustomerFolder> getAllCustomerFolders() {

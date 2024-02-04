@@ -3,14 +3,22 @@ server:
 logging:
   level:
     root: debug
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
     username: sa
     password: password
-  jap:
+  jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: create-drop
   h2:
     console.enabled: true
 
